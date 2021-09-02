@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock  %}
+{% block title %}Home{% endblock  %}
+{% block body %}
+    <div class="maindiv">
+        <div class="cover">
+            <div class="mb-3">
+                <input type="text" class="form-control registration_number" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Mobile Number">
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-primary start_button">Start</button>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
