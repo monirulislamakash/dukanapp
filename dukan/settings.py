@@ -134,4 +134,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
+STATIC_ROOT = "/var/www/example.com/static/"
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
