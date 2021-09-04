@@ -17,7 +17,7 @@
         border-top-left-radius:10px;
         border-top-right-radius:10px;
         margin-top:70vh;
-        
+        padding-top:30px;
     }
     .registration_number{
         border: 0px;
@@ -32,5 +32,9 @@
         align-items: center;
         left: 0%;
         transform: translate(5%);
+    }
+    .logo{
+        width:135px;
+        margin:0 auto;
     }
 }
