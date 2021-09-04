@@ -7,16 +7,15 @@
         height: 100vh;
         background: url("startbg.png");
         background-size:cover;
-        position: fixed;
     }
     .cover{
         width: 100%;
         background-color: #fff;
-        height:50vh;
+        height:31%;
         padding: 10px;
         border-top-left-radius:10px;
         border-top-right-radius:10px;
-        margin-top:70vh;
+        margin-top:60vh;
         padding-top:30px;
     }
     .registration_number{
@@ -36,5 +35,11 @@
     .logo{
         width:135px;
         margin:0 auto;
+        transform: translate(0px,90px);
+    }
+    .tagline{
+        transform: translate(0px,104px);
+        text-align: center;
+        color: #fff;
     }
 }
