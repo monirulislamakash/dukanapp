@@ -59,7 +59,7 @@
         position: absolute;
         content: "";
         top: 53%;
-        left: 50%;
+        left: 49.9%;
         transform: translate(-50%, 50%);
     }
     .registration_number{

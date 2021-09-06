@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-l9muz=#c#daqdfn3n^9rh&sutu6!zvicl^t3v3-#k&65$4_b+w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["akashdukan.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -136,3 +136,14 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = "/var/www/example.com/static/"
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='monirulislamakash18@gmail.com'
+EMAIL_HOST_PASSWORD='AAJ7731@gmail.com'
+EMAIL_USE_TLS=True
+
+import os
+MEDIA_ROOT=os.path.join(BASE_DIR,'')
+MEDIA_URL="//"
