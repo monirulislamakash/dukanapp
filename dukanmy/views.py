@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 # Create your views here.
 def login(request):
     if request.method=="POST":
-        problem="Dukan OTP "
         otpmail=request.POST.get("otpemail")
-        otpnum=str(random.randint(100000, 999999))
+        otpnum=str(random.randint(10000000, 99999999))
+        problem="Dukan OTP "
         print(otpnum)
         send_mail(
             problem,
@@ -17,9 +17,13 @@ def login(request):
             fail_silently=False,
         )
         try:
-            user=User.objects.get(username=otpmail)
-            user.set_password(otpmail)
-            user.save()
+            newpass=otpnum
+            u = User.objects.get(username=otpmail)
+            u.set_password(newpass)
+            u.save()
         except User.DoesNotExist:
             user=User.objects.create_user(username=otpmail,password=otpnum)
+            return render(request,"login.html")
     return render(request,"login.html")
+def index(request):
+    return render(request,"index.html")
