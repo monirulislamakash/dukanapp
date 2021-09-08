@@ -3,9 +3,9 @@
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 {% endblock  %}
-{% block title %}Login{% endblock  %}
+{% block title %}OTP{% endblock  %}
 {% block body %}
-    <div class="maindiv">
+    <div class="maindivotp">
         <div class="logo">
             <img src="{% static 'brandlogo/blogo.png' %}" align="center">
             <p>make online shope in minute</p>
@@ -16,10 +16,10 @@
             <form method="POST">
             {% csrf_token %}
             <div class="mb-3">
-                <input name="otpemail" type="text" class="registration_number" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email Address">
+                <input name="password" type="text" class="registration_number" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter the 8-digit code">
             </div>
             <div class="">
-                <button type="submit" class="btn btn-primary start_button">Start</button>
+                <button type="submit" class="btn btn-primary start_button">Verify</button>
             </div>
             </form>
         </div>

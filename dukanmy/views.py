@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect
 from django.core.mail import send_mail
 import random
 from django.contrib.auth.models import User
+from django.contrib import auth
 # Create your views here.
+otpuser=[]
 def login(request):
     if request.method=="POST":
         otpmail=request.POST.get("otpemail")
@@ -21,9 +23,25 @@ def login(request):
             u = User.objects.get(username=otpmail)
             u.set_password(newpass)
             u.save()
+            otpuser.append(otpmail)
+            return redirect(otp)
         except User.DoesNotExist:
             user=User.objects.create_user(username=otpmail,password=otpnum)
             return render(request,"login.html")
     return render(request,"login.html")
 def index(request):
-    return render(request,"index.html")
+    if request.user.is_authenticated:
+        return render(request,"index.html")
+    return redirect(login)
+def otp(request):
+    email=otpuser[0]
+    passw=request.POST.get("password")
+    if request.method=="POST":
+       user=auth.authenticate(username=email,password=passw)
+       if user is not None:
+            auth.login(request,user)
+            return redirect(index) 
+       else:
+            return render(request,"otp.html",{'error':"Invalide User Password"})
+    print(email,passw)
+    return render(request,"otp.html")
