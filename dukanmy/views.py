@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.core.mail import send_mail
 import random
+from django.contrib.auth.models import User
 # Create your views here.
 def login(request):
     if request.method=="POST":
@@ -15,5 +16,10 @@ def login(request):
             [otpmail],
             fail_silently=False,
         )
-        return render(request,"login.html",{'successfully':'we will get back to you soon'})
+        try:
+            user=User.objects.get(username=otpmail)
+            user.set_password(otpmail)
+            user.save()
+        except User.DoesNotExist:
+            user=User.objects.create_user(username=otpmail,password=otpnum)
     return render(request,"login.html")
